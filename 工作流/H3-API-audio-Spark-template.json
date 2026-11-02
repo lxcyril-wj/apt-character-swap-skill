@@ -1,0 +1,370 @@
+{
+  "45": {
+    "inputs": {
+      "noise": [
+        "59",
+        0
+      ],
+      "guider": [
+        "47",
+        0
+      ],
+      "sampler": [
+        "56",
+        0
+      ],
+      "sigmas": [
+        "63",
+        0
+      ],
+      "latent_image": [
+        "108",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "47": {
+    "inputs": {
+      "model": [
+        "141",
+        0
+      ],
+      "conditioning": [
+        "43",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "56": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "58": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "59": {
+    "inputs": {
+      "noise_seed": 0
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "63": {
+    "inputs": {
+      "scheduler": "beta",
+      "steps": 6,
+      "denoise": 1.0,
+      "model": [
+        "103",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "67": {
+    "inputs": {
+      "value": 2
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "放大倍数"
+    }
+  },
+  "69": {
+    "inputs": {
+      "resize_type": "scale by multiplier",
+      "quality": "ULTRA",
+      "images": [
+        "79",
+        0
+      ],
+      "resize_type.scale": [
+        "67",
+        0
+      ]
+    },
+    "class_type": "RTXVideoSuperResolution",
+    "_meta": {
+      "title": "RTX Video Super Resolution"
+    }
+  },
+  "70": {
+    "inputs": {
+      "samples": [
+        "45",
+        1
+      ],
+      "vae": [
+        "77",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAE Decode Audio"
+    }
+  },
+  "71": {
+    "inputs": {
+      "frame_rate": 24,
+      "loop_count": 0,
+      "filename_prefix": "H3_AUDIO",
+      "format": "video/h264-mp4",
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "69",
+        0
+      ],
+      "audio": [
+        "108",
+        1
+      ],
+      "pix_fmt": "yuv420p",
+      "crf": 19,
+      "save_metadata": false,
+      "trim_to_audio": false
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
+    }
+  },
+  "76": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "78": {
+    "inputs": {
+      "unet_name": "minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "79": {
+    "inputs": {
+      "samples": [
+        "45",
+        1
+      ],
+      "vae": [
+        "76",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "90": {
+    "inputs": {
+      "lora_name": "H3\\minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+      "strength_model": 1,
+      "model": [
+        "78",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "103": {
+    "inputs": {
+      "attention": "comfy kitchen attention",
+      "model": [
+        "90",
+        0
+      ]
+    },
+    "class_type": "ModelAttentionBackend",
+    "_meta": {
+      "title": "ModelAttentionBackend"
+    }
+  },
+  "106": {
+    "inputs": {
+      "value": [
+        "107",
+        0
+      ]
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Float (Duration)"
+    }
+  },
+  "43": {
+    "inputs": {
+      "prompt": "",
+      "width": 960,
+      "height": 544,
+      "ref_image_size": "max",
+      "clip": [
+        "58",
+        0
+      ],
+      "vae": [
+        "76",
+        0
+      ],
+      "audio_vae": [
+        "77",
+        0
+      ],
+      "length": [
+        "104",
+        1
+      ],
+      "ref_audios.ref_audio_0": [
+        "113",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "H3 single dynamic node (T2V / +images / +videos / +audios)"
+    }
+  },
+  "108": {
+    "inputs": {
+      "av_latent": [
+        "43",
+        1
+      ],
+      "source_audio": [
+        "113",
+        0
+      ],
+      "audio_vae": [
+        "77",
+        0
+      ]
+    },
+    "class_type": "VRGDG_MiniMaxH3AudioDrive",
+    "_meta": {
+      "title": "LOCK SOURCE AUDIO"
+    }
+  },
+  "112": {
+    "inputs": {
+      "audio": "835b8527561c.mp4"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Load Audio"
+    }
+  },
+  "77": {
+    "inputs": {
+      "vae_name": "H3\\minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "104": {
+    "inputs": {
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+      "values.a": [
+        "106",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Math Expression"
+    }
+  },
+  "113": {
+    "inputs": {
+      "start_index": 2,
+      "duration": 3,
+      "audio": [
+        "112",
+        0
+      ]
+    },
+    "class_type": "TrimAudioDuration",
+    "_meta": {
+      "title": "Trim Audio Duration"
+    }
+  },
+  "107": {
+    "inputs": {
+      "audio": [
+        "113",
+        0
+      ]
+    },
+    "class_type": "SoundFlow_GetLength",
+    "_meta": {
+      "title": "Audio Get Length"
+    }
+  },
+  "141": {
+    "class_type": "MiniMaxH3SparkAttentionSM89",
+    "_meta": {
+      "title": "Spark Attention [fidelity]"
+    },
+    "inputs": {
+      "model": [
+        "103",
+        0
+      ],
+      "mode": "speed",
+      "steps": 6,
+      "warmup_mode": "warmup_ratio",
+      "warmup_ratio": 0.0,
+      "warmup_steps": 0,
+      "topk_mode": "topk_ratio",
+      "topk_ratio": 0.2,
+      "topk_blocks": 228,
+      "dense_layers": 0,
+      "min_tokens": 12288,
+      "strict": true,
+      "dense_backend": "kitchen",
+      "tail_granularity": "query",
+      "reblock_layout": "q_reuse_k",
+      "sparse_scope": "joint-video",
+      "producer_chunk": 16384
+    }
+  }
+}
