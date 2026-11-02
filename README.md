@@ -32,7 +32,9 @@
 
 ### 路线 A：本地生成（免费）
 
-1. 下载整合包及模型：**https://pan.quark.cn/s/54d2b9913687**
+1. 下载整合包及模型：
+   - 国内（夸克网盘）：https://pan.quark.cn/s/54d2b9913687
+   - 海外（Google Drive）：https://drive.google.com/drive/folders/1SCBLNyaL85jXigVSioocU1NAKLc9VHFY?usp=sharing
 2. 按 [docs/本地环境准备.md](docs/本地环境准备.md) 安装启动（RTX 4090/24G 实测：141 帧双参考约 5 分钟/段，全片约 2 小时）
 
 ### 路线 B：RunningHub 云端
@@ -76,7 +78,9 @@
 ## 📦 复刻素材怎么来
 
 - **方法性素材已随仓库开源**：44 段中文简介、原始/补齐帧数表、示例参考图（`素材包/`），加上 `tools/make_segments.py`，自备正版 MV 即可一键复现全部素材结构。
-- **带参考 MV / 音频素材的完整版在网盘**（与整合包及模型同盘）：**https://pan.quark.cn/s/54d2b9913687**
+- **带参考 MV / 音频素材的完整版在网盘**（与整合包及模型同盘）：
+  - 国内（夸克网盘）：https://pan.quark.cn/s/54d2b9913687
+  - 海外（Google Drive）：https://drive.google.com/drive/folders/1SCBLNyaL85jXigVSioocU1NAKLc9VHFY?usp=sharing
   出于版权原因，原 MV 分段视频与音轨不在本仓库分发；网盘素材同样仅供个人学习，请勿二次传播。
 
 ## 🔧 ComfyUI 工作流

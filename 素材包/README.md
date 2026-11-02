@@ -14,7 +14,8 @@
 原 MV 的**分段视频与音轨不在本仓库分发**（音乐与画面版权归原权利方）。两种获取方式：
 
 1. **网盘完整版（推荐）**：整合包及模型＋带参考 MV/音频素材的完整复刻包，都在同一个网盘里：
-   **https://pan.quark.cn/s/54d2b9913687**
+   - 国内（夸克网盘）：https://pan.quark.cn/s/54d2b9913687
+   - 海外（Google Drive）：https://drive.google.com/drive/folders/1SCBLNyaL85jXigVSioocU1NAKLc9VHFY?usp=sharing
 2. **自备 MV 切段**：使用你自己持有的正版 MV，一条命令自动复现素材结构：
 
 ```bash
